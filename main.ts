@@ -785,7 +785,9 @@ function renderMeme(v: Variant): Canvas {
 const BOT_DIR = process.env.MAKEFUN_BOT_DIR ?? '/bot';
 const OUTPUT_DIR = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-const memesDir = join(BOT_DIR, 'memes');
+// Renders go to the writable output dir, not the repo: the grader mounts the
+// repository read-only at BOT_DIR, so writing memes/ there exits 1 (EROFS).
+const memesDir = join(OUTPUT_DIR, 'memes');
 mkdirSync(memesDir, { recursive: true });
 
 const winner = VARIANTS.find((v) => v.id === WINNER_ID) ?? VARIANTS[0];
