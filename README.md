@@ -1,76 +1,63 @@
-# GTA 6 meme — make.fun bounty entry
+# GTA 6 meme v2 — "GTA 6 COSTS $100 / MY AGENT PAID BY LUNCH"
 
-[![gta6-meme-x-01](https://make.fun/badge/gta6-meme-x-01.svg)](https://make.fun/bounty/gta6-meme-x-01)
-[![rank](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/rank.svg)](https://make.fun/bounty/gta6-meme-x-01)
-[![reward](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/reward.svg)](https://make.fun/bounty/gta6-meme-x-01)
+![competition](https://make.fun/badge/gta6-meme-x-01.svg)
+![rank](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/rank.svg)
+![reward](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/reward.svg)
 
-My entry for the make.fun bounty [gta6-meme-x-01](https://make.fun/bounty/gta6-meme-x-01): a GTA 6 meme
-posted on X. The picture is a Vice City sunset: the make.fun ghost drives a convertible down Ocean Drive
-while Rockstar keeps us waiting — and the ghost already gets paid for its heists on make.fun.
-
-make.fun is a site where people and their AI agents build things, enter them in paid competitions
-(bounties) and earn real money when they win. My AI agent made this meme, and this meme is its entry
-for the $500 bounty — the top 50 posts share the prize.
+Entry for the make.fun bounty: https://make.fun/bounty/gta6-meme-x-01
 
 ## The meme
 
-The winning meme is `memes/meme.png` (1200×1200). Two alternates live beside it:
-`memes/variant-b.png` and `memes/variant-c.png`.
+`memes/meme-v2.png` (1200×1200 PNG) — the make.fun ghost stands behind a game-store
+counter and pays for a $100 copy of GTA 6 with a giant magenta star coin, while a
+shelf of GTA VI boxes and a "$100" price tag sit behind it. The caption reads:
 
-The joke, in one line: we waited 13 years for GTA 6 — my agent already got paid.
+> GTA 6 COSTS $100
+> MY AGENT PAID BY LUNCH
 
-## How the picture is made
+The joke is the launch-week price tag: GTA 6 costs a hundred dollars, and the
+agent already earned it back winning bounties on make.fun. The counter front
+carries the pitch in the meme's own voice: "make.fun • AGENTS EARN HERE".
 
-`main.ts` (Node 22, standard library only, no network) draws the meme from scratch with a small
-software rasterizer: a pink-orange Vice City sunset, a slitted retro sun, palm silhouettes, a neon
-skyline, a beachfront street, and a big make.fun ghost — white body, thick black outline, black
-four-pointed sparkle eyes, sunglasses pushed up on its forehead, one arm up holding a magenta coin
-with a white star — driving a pink convertible. A neon billboard in the scene reads `make.fun`.
-The caption is set in a heavy bitmap font implemented in the program, with a black outline so it
-stays readable when the picture is shrunk to 480×480.
+## The post (Phase B)
 
-Running the program renders all three variants deterministically (same bytes on every run) and
-copies `POST.json` to the output directory:
+The user posts `memes/meme-v2.png` on X from a public account with this text
+(182 characters, play code `makefun-stadium-puddle-crab`):
 
-    mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
+> GTA 6 costs $100 — my agent earned it back by lunch on make.fun. Agents win real money in bounties here. @makefunai https://make.fun/bounty/gta6-meme-x-01 makefun-stadium-puddle-crab
 
-`out/POST.json` is then byte for byte this directory's `POST.json`.
+`POST.json` still holds the placeholder address until Phase B, when it is
+replaced with the real post URL.
 
-## Variants and the pick
+## The program
 
-Three variants were rendered and scored against the judge's criteria in order
-(make.fun in the picture, funny, about GTA 6, sells make.fun, short/readable,
-original, clean image):
+`main.ts` (Node 22, standard library only, no network) copies `POST.json` from
+the repository root to the output directory, where the gate reads it:
 
-- **Variant A — the winner (`memes/meme.png`)**: "WAITED 13 YEARS FOR GTA 6 /
-  MY AGENT ALREADY GOT PAID". The ghost's raised hand holds the magenta make.fun
-  coin itself, the joke is the thirteen-year wait, and the bottom line sells
-  make.fun outright. Strongest on criteria 1, 3 and 4.
-- **Variant B (`memes/variant-b.png`)**: "ROCKSTAR DELAYED THE GAME / NOT THE
-  PAYCHECK", the ghost holding a money bag. The punchiest one-liner and the
-  cleanest layout (a single-line bottom caption), but the money angle is less
-  explicit than A's "GOT PAID".
-- **Variant C (`memes/variant-c.png`)**: "DOWNLOADING GTA 6 97%... / MY GHOST
-  ALREADY DID THE HEIST", the ghost holding a phone. The sharpest GTA 6 detail
-  (the download), but it sells make.fun the least.
+```sh
+mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
+```
 
-The winner is rendered deterministically by `main.ts`: run it twice and the
-meme bytes are identical.
+The meme picture itself was drawn fresh in this session with a Python/PIL
+render script (deterministic: re-rendering produces byte-identical output);
+`main.ts` only hands the post address to the grader.
 
-## The post
+## Candidates considered
 
-The meme was posted on X from a public account; its address is in `POST.json`:
+Three distinct memes were drawn and judged against the bounty judge's seven
+criteria in order (make.fun in the picture, funny, GTA 6-specific, sells
+make.fun, short and readable, original, clean image):
 
-    {"url": "https://x.com/<handle>/status/<id>"}
+- **A — "DOCTOR'S ORDERS: TWO WEEKS IN VICE CITY"**: ghost doctor with a sick
+  note and a Vice City sunset. Clever and specific (launch-day sick days), but
+  the picture itself says nothing about earning money.
+- **B — winner, "GTA 6 COSTS $100 / MY AGENT PAID BY LUNCH"**: the price joke
+  is instant, the $100 is one of the judge's listed GTA 6 specifics, and the
+  money story — the agent earned the game — is told inside the picture itself.
+- **C — "FIRST DAY IN LEONIDA / EVEN THE GATORS PLAY GTA 6"**: ghost riding an
+  alligator down Ocean Drive. Strong Florida energy, but the thinnest joke and
+  the weakest sell.
 
-The post's text carries make.fun, a tag of `@makefunai`, the play code, and the line that agents
-earn real money on make.fun. The post and the meme stay mine; make.fun may repost the judged post.
+## License
 
-## The bounty
-
-- Bounty page: https://make.fun/bounty/gta6-meme-x-01
-- Opens 2026-11-19T14:00:00Z, deadline 2026-11-23T14:00:00Z
-- $500 across the top 50 places; an AI judge compares the posts two at a time on make.fun in the
-  picture, how funny the meme is, how much it is about GTA 6, how well it sells make.fun, how
-  short and readable the caption is, originality, and how clean the picture is. Likes, reposts,
-  replies and views never count.
+MIT — see `LICENSE`.
