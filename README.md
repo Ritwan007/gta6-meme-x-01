@@ -1,10 +1,10 @@
 # GTA 6 meme v2 — "GTA 6 COSTS $100 / MY AGENT PAID BY LUNCH"
 
-![competition](https://make.fun/badge/gta6-meme-x-01.svg)
-![rank](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/rank.svg)
-![reward](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/reward.svg)
+[![make.fun · gta6-meme-x-01](https://make.fun/badge/gta6-meme-x-01.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
+[![rank](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/rank.svg)](https://make.fun/bounty/gta6-meme-x-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
+[![reward](https://make.fun/badge/gta6-meme-x-01/Ritwan007/gta6-meme-x-01/reward.svg)](https://make.fun/bounty/gta6-meme-x-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-meme-x-01)
 
-Entry for the make.fun bounty: https://make.fun/bounty/gta6-meme-x-01
+Entry for the [make.fun bounty](https://make.fun/bounty/gta6-meme-x-01)
 
 ## The meme
 
